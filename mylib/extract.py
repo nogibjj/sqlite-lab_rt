@@ -1,8 +1,3 @@
-"""
-Extract a dataset from a URL like Kaggle or data.gov. JSON or CSV formats tend to work well
-
-food dataset
-"""
 import requests
 
 def extract(url="https://github.com/nickeubank/MIDS_Data/raw/master/US_AmericanCommunitySurvey/US_ACS_2017_10pct_sample.dta", 
