@@ -1,38 +1,62 @@
-## SQLite Lab
+CRUD Operations using Python and CLI
 
-### Lab:
+Overview
+This repository is designed to facilitate CRUD (Create-Read-Update-Delete) operations using Python and a Command Line Interface (CLI). 
 
-* Use an AI Assistant, but use a different one then you used from a previous lab (Anthropic's Claud, Bard, Copilot, CodeWhisperer, Colab AI, etc)
-* ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
-For the ETL-Query lab:
-* [E] Extract a dataset from a URL like Kaggle or data.gov. JSON or CSV formats tend to work well.
-* [T] Transform the data by cleaning, filtering, enriching, etc to get it ready for analysis.
-* [L] Load the transformed data into a SQLite database table using Python's sqlite3 module.
-* [Q] Write and execute SQL queries on the SQLite database to analyze and retrieve insights from the data.
+<img width="748" alt="Screenshot 2023-11-28 at 11 57 09 PM" src="https://github.com/nogibjj/sqlite-lab_rt/assets/143838819/ec700c2c-8b93-48ad-8a89-f0cc0ee5024c">
 
-#### Tasks:
+Features
+Automated Logging: All CRUD operations are logged in query_logs for easy tracking.
+CLI Interaction: Perform database operations through simple CLI commands.
+Automated Testing: Utilizes GitHub Actions to run tests and log CRUD operations on repository updates.
+Getting Started
 
-* Fork this project and get it to run
-* Make the query more useful and not a giant mess that prints to screen
-* Convert the main.py into a command-line tool that lets you run each step independantly
-* Fork this project and do the same thing for a new dataset you choose
-* Make sure your project passes lint/tests and has a built badge
-* Include an architectural diagram showing how the project works
+Installation
+the possible commands and their relevant arguments are:
 
-#### Reflection Questions
+create: To crete a Table in a SQLite DB by reading the information from the specified CSV file.
+Args: (db_name, dataset, auto)
+read: To run a SQLite READ query entered by the user and return the output.
+Args: (db_name, table_name, query)
+update: To run a SQLite UPDATE query entered by the user.
+Args: (db_name, table_name, query)
+delete: To run a SQLite DELETE query entered by the user.
+Args: (db_name, table_name, query)
+create_data: To create CSV file in the Data folder from the given source.
+Args: (source, file_name, auto)
+delete_data: To delete the CSV file.
+Args: (file_name, auto)
+clear_log: To clear the query_logs file.
+Args: (log_file)
+Usage
+Explain how to use your application, including CLI commands and their arguments.
 
-* What challenges did you face when extracting, transforming, and loading the data? How did you overcome them?
-* What insights or new knowledge did you gain from querying the SQLite database?
-* How can SQLite and SQL help make data analysis more efficient? What are the limitations?
-* What AI assistant did you use and how did it compare to others you've tried? What are its strengths and weaknesses?
-* If you could enhance this lab, what would you add or change? What other data would be interesting to load and query?
+Example Commands:
+Create: python main.py create [args] - Creates a table, etc.
+Read: python main.py read [args] - Executes a read query, etc.
+More commands...
+Sample Execution
+Show an example of the program in action, possibly with screenshots or code blocks.
 
-##### Challenge Exercises
 
-* Add more transformations to the data before loading it into SQLite. Ideas: join with another dataset, aggregate by categories, normalize columns.
-* Write a query to find correlated fields in the data. Print the query results nicely formatted.
-* Create a second table in the SQLite database and write a join query with the two tables.
-* Build a simple Flask web app that runs queries on demand and displays results.
-* Containerize the application using Docker so the database and queries can be portable
+Repository Structure
+query_logs: Logs of CRUD operations.
+README.md: This file.
+requirements.txt: List of dependencies.
+.github/workflows: CI/CD configurations.
+Makefile: Instructions for automation processes.
+.devcontainer: Configuration for the virtual environment.
+Data: Default storage for generated CSV files.
+resources: Additional supporting files.
+Contributing
+Guide on how others can contribute to your project.
 
+Sample Execution and Test
+Sample Execution: a read command is used without any arguments, so the first 5 rows of the default Database and Table are returned as expected:
+<img width="981" alt="Screenshot 2023-11-28 at 11 59 32 PM" src="https://github.com/nogibjj/sqlite-lab_rt/assets/143838819/63c3e813-251c-4e39-bad8-db346ea0844e">
+
+Testing: "make test" command is run to verify all functionalities are working as expected and to see if the CRUD actions are being performed.
+
+Note: Coverage is intentioanlly not kept at 100% as we do not call the clear_log funtion which would clear the logs.
+<img width="981" alt="Screenshot 2023-11-29 at 12 00 08 AM" src="https://github.com/nogibjj/sqlite-lab_rt/assets/143838819/3c4f1a1f-5875-4c46-97aa-e656dcbc8b69">
 
